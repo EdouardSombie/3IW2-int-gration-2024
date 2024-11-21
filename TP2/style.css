@@ -1,5 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
+@keyframes fadeIn {
+	from {
+		transform: translateY(100%);
+		opacity: 0;
+	}
+	to {
+		transform: translateY(0%);
+		opacity: 1;
+	}
+}
+
 * {
 	box-sizing: border-box;
 }
@@ -11,8 +22,11 @@
 	--light-blue: #2a468d;
 	--white: #fff;
 	--grey: grey;
+	--medium-grey: #d3d3d3;
 	--light-grey: #f8f8f8;
 	--black: black;
+
+	--shadow-color: rgba(0, 0, 0, 0.2);
 }
 
 body {
@@ -31,6 +45,10 @@ a {
 	color: inherit;
 }
 
+.disabled {
+	opacity: 0.5;
+}
+
 .container {
 	max-width: 1170px;
 	margin: auto;
@@ -46,16 +64,84 @@ a {
 	display: inline-block;
 	border-radius: 10000px;
 	background-color: var(--black);
+	border: solid thin var(--black);
 	color: var(--white);
 	letter-spacing: 0.1em;
-	transition: background-color 0.3s;
+	transition: all 0.3s;
 }
 
-/* classe modifier */
+/* classes modifier */
 .ctaButton--blue {
 	background-color: var(--blue);
+	border-color: var(--blue);
 	&:hover {
 		background-color: var(--light-blue);
+		border-color: var(--light-blue);
+	}
+}
+
+.ctaButton--green {
+	background-color: var(--green);
+	border-color: var(--green);
+	&:hover {
+		background-color: var(--light-green);
+		border-color: var(--light-green);
+	}
+}
+
+.ctaButton--white {
+	background-color: var(--white);
+	border-color: var(--green);
+	color: var(--green);
+	&:hover {
+		background-color: var(--light-green);
+		border-color: var(--light-green);
+		color: var(--white);
+	}
+}
+
+/* Composant card */
+
+.card {
+	background-color: var(--white);
+	border-radius: 1rem;
+	padding: 2rem;
+	display: flex;
+	flex-direction: column;
+	box-shadow: 0 0 1rem var(--shadow-color);
+	transition: all 0.5s;
+	&:hover {
+		transform: translateY(-1rem);
+		box-shadow: 0 0 3rem var(--shadow-color);
+	}
+	h2 {
+		margin: 0;
+		font-size: 1.5rem;
+		font-weight: 400;
+	}
+	h3 {
+		font-size: 2rem;
+		margin: 0;
+		small {
+			font-weight: 400;
+			font-size: 60%;
+		}
+	}
+	ul {
+		padding-top: 2rem;
+		padding-bottom: 2rem;
+		border-top: solid thin var(--medium-grey);
+		border-bottom: solid thin var(--medium-grey);
+		margin: 1rem 0;
+		padding-left: 1.25rem;
+	}
+	li {
+		list-style-image: url("images/checklist.svg");
+		padding-left: 0.25rem;
+		margin-bottom: 1rem;
+		&:last-child {
+			margin-bottom: 0;
+		}
 	}
 }
 
@@ -99,7 +185,10 @@ header {
 /* SECTION 1 */
 .section1 {
 	height: 40rem;
-	background-color: #0078bb;
+	background-image: url("images/hero-image.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: bottom right;
 	padding-bottom: 1.5rem;
 	color: var(--white);
 	.container {
@@ -125,15 +214,26 @@ header {
 			text-align: center;
 		}
 	}
+	.ctaButton {
+		animation: fadeIn 1s;
+	}
 }
 
 .section2 {
-	background-color: #008cda;
+	background-color: var(--white);
 	.container {
 		display: flex;
 		flex-direction: column;
 		h1 {
 			text-align: center;
+			font-size: 3rem;
+		}
+		h2 {
+			font-size: 1.25rem;
+		}
+		h3 {
+			font-size: 0.875rem;
+			font-weight: 400;
 		}
 		ul {
 			list-style: none;
@@ -151,10 +251,13 @@ header {
 }
 
 .section3 {
-	background-color: #006ba6;
+	background-color: var(--light-grey);
 	h1 {
 		text-align: center;
+		font-size: 1.875rem;
+		margin: 3rem 0;
 	}
+
 	.container {
 		display: flex;
 		flex-direction: column;
@@ -171,6 +274,10 @@ header {
 			width: 48%;
 		}
 	}
+	.card {
+		height: 100%;
+	}
+
 	footer {
 		text-align: center;
 		width: 100%;
@@ -179,6 +286,9 @@ header {
 }
 
 body > footer {
+	background-color: var(--black);
+	color: var(--white);
+	font-size: 0.8125rem;
 	.container {
 		display: flex;
 		justify-content: space-between;
