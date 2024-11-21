@@ -26,6 +26,7 @@
 	--light-grey: #f8f8f8;
 	--black: black;
 
+	--sticky-color: rgba(0, 0, 0, 0.5);
 	--shadow-color: rgba(0, 0, 0, 0.2);
 }
 
@@ -43,6 +44,13 @@ h3 {
 a {
 	text-decoration: none;
 	color: inherit;
+}
+
+button {
+	background-color: transparent;
+	font-family: inherit;
+	border: none;
+	padding: 0;
 }
 
 .disabled {
@@ -154,16 +162,29 @@ header {
 	top: 0;
 	left: 0;
 	right: 0;
+	transition: all 1s;
+	&.sticky {
+		background-color: var(--sticky-color);
+		padding: 0.5rem 0;
+	}
 	.container {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
 	}
-
 	.container > a {
 		line-height: 0;
+		z-index: 2;
 		svg {
 			width: 140px;
+			height: auto;
+		}
+	}
+	.menu-btn {
+		display: none;
+		color: var(--white);
+		svg {
+			width: 2rem;
 			height: auto;
 		}
 	}
@@ -302,6 +323,104 @@ body > footer {
 			a {
 				padding: 1em;
 				display: block;
+			}
+		}
+	}
+}
+
+/* styles mobiles */
+
+@media screen and (max-width: 1200px) {
+	.container {
+		margin: 0 2rem;
+	}
+}
+
+@media screen and (max-width: 1024px) {
+	header {
+		nav {
+			position: fixed;
+			background-color: var(--blue);
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			transform: translateX(100%);
+			transition: transform 1s;
+			&.visible {
+				transform: translateX(0%);
+			}
+			ul {
+				height: 100%;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+			}
+		}
+		.menu-btn {
+			display: block;
+			z-index: 2;
+		}
+	}
+	.section1 {
+		position: relative;
+		&::before {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background-color: var(--shadow-color);
+		}
+		.container {
+			& > * {
+				position: relative;
+			}
+			h1 {
+				font-size: 3rem;
+				margin-top: 3rem;
+			}
+			h2 {
+				font-size: 1rem;
+			}
+		}
+	}
+
+	.section2 {
+		.container {
+			ul {
+				flex-direction: column;
+				li {
+					width: 100%;
+				}
+			}
+		}
+	}
+
+	.section3 {
+		.container {
+			ul {
+				width: 100%;
+				flex-direction: column;
+				gap: 2rem;
+				li {
+					width: 100%;
+				}
+			}
+		}
+	}
+
+	body > footer {
+		padding-bottom: 2rem;
+		.container {
+			flex-wrap: wrap;
+			justify-content: center;
+			nav {
+				width: 100%;
+			}
+			ul {
+				justify-content: center;
 			}
 		}
 	}
