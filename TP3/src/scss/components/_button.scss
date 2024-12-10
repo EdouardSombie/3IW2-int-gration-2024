@@ -4,7 +4,6 @@
 .button {
 	@include m.resetA;
 	@include m.resetButton;
-	cursor: pointer;
 	padding: f.rem(10) f.rem(16);
 	display: inline-block;
 	background-color: var(--black);

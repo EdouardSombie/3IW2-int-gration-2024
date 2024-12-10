@@ -179,13 +179,13 @@ summary {
 
 :root {
   --red: #dc3545;
-  --red-hover: rgb(227, 93.4, 106.2);
+  --red-hover: rgb(223.5, 73.2, 87.6);
   --grey: #6c757d;
-  --grey-hover: rgb(136.1158798283, 144.6755364807, 152.2841201717);
+  --grey-hover: rgb(121.2553648069, 130.8849785408, 139.4446351931);
   --blue: #0d6efd;
-  --blue-hover: rgb(61.4, 139, 253.4);
+  --blue-hover: rgb(37.2, 124.5, 253.2);
   --black: black;
-  --black-hover: #333333;
+  --black-hover: rgb(25.5, 25.5, 25.5);
   --white: white;
   --white-hover: white;
 }
