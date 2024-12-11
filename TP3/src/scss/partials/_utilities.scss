@@ -35,13 +35,13 @@
 	// classes utilitaires de couleur
 	@each $name, $value in v.$colors {
 		.bg-#{$name} {
-			background-color: #{$value};
+			background-color: var(--#{$name});
 		}
 		.border-#{$name} {
-			border-color: #{$value};
+			border-color: var(--#{$name});
 		}
 		.text-#{$name} {
-			color: #{$value};
+			color: var(--#{$name});
 		}
 	}
 }
