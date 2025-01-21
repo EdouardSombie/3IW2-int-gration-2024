@@ -5,6 +5,18 @@ $colors: (
 	"blue": #0d6efd,
 	"black": black,
 	"white": white,
+	"neutral": #3f3f46,
+	"orange": orange,
+	"purple": #c026d3,
+	"yellow": #f7f023,
+	"green": #09cb2c,
+	"light-grey": #fafafa,
+
+	"primary": #0d6efd,
+	"secondary": #6c757d,
+	"accent": #dc3545,
+	"text-color": #3f3f46,
+	"shadow-color": rgba(0, 0, 0, 0.1),
 );
 
 // Breakpoints
@@ -15,3 +27,5 @@ $breakpoints: (
 	"xl": 1200px,
 	"xxl": 1400px,
 );
+
+$themes: ();

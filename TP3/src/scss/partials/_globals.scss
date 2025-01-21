@@ -6,12 +6,28 @@
 	:root {
 		@each $name, $value in v.$colors {
 			--#{$name}: #{$value};
-			--#{$name}-hover: #{color.scale($value, $lightness: 10%)};
-			--#{$name}-transparent: #{color.scale($value, $alpha: -40%)};
+			@if ($name != "text-color" and $name != "shadow-color") {
+				--#{$name}-hover: #{color.scale($value, $lightness: 10%)};
+				--#{$name}-transparent: #{color.scale($value, $alpha: -40%)};
+			}
 		}
+
+		// --text-color: var(--neutral);
+		// --body-bg-color: var(--white);
+		// @media screen and (prefers-color-scheme: dark) {
+		// 	--text-color: var(--white);
+		// 	--body-bg-color: var(--neutral);
+		// }
+
+		// &[data-theme="halloween"] {
+		// 	--text-color: var(--black);
+		// 	--body-bg-color: var(--orange);
+		// }
 	}
 
 	body {
 		font-family: fonts.$font1;
+		color: var(--text-color);
+		background-color: var(--body-bg-color);
 	}
 }
